@@ -5,7 +5,7 @@
 
 TARGET = SampleApp
 
-SRCS = main.cc string_property.cc
+SRCS = main.cc string_property.cc property_factory.cc property_manager.cc
 OBJECTS=$(subst .cc,.o,$(SRCS))
 
 CPPFLAGS = -std=c++11 -g

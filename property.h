@@ -22,7 +22,7 @@ public:
 	 * 	Success : 0
 	 * 	Error   : Error code
 	 */
-	virtual int ReadValue() = 0;
+	virtual int SetValue(std::string value) = 0;
 
 	/*
 	 * This function reads a value of property type into object local storage.
@@ -31,7 +31,16 @@ public:
 	 * 	Success : 0
 	 * 	Error   : Error code
 	 */
-	virtual int PrintValue() = 0;
+	virtual std::string GetValue() = 0;
+
+	/*
+	 * This function return type name as string.
+	 *
+	 * Return:
+	 * 	Success : 0
+	 * 	Error   : Error code
+	 */
+	virtual std::string GetType() = 0;
 
 protected:
 	std::string name_;

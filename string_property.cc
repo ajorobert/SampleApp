@@ -8,13 +8,15 @@
 #include "string_property.h"
 #include <iostream>
 
-int StringProperty::ReadValue() {
-	std::cout << "Please enter a string value for {" << name_ << "} : ";
-	std::cin >> value_;
+int StringProperty::SetValue(std::string value) {
+	value_ = value;
 	return 0;
 }
 
-int StringProperty::PrintValue() {
-	std::cout << "String value of {" << name_ << "} is : " << value_ << std::endl;
-	return 0;
+std::string StringProperty::GetValue() {
+	return value_;
+}
+
+std::string StringProperty::GetType() {
+	return "string";
 }

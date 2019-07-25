@@ -16,8 +16,9 @@ public:
 	virtual ~StringProperty() = default;
 
 public:
-	int ReadValue() override;
-	int PrintValue() override;
+	int SetValue(std::string value) override;
+	std::string GetValue() override;
+	std::string GetType() override;
 
 protected:
 	std::string value_;
