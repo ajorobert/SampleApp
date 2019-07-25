@@ -1,0 +1,11 @@
+{
+	"group": {
+		"prop1":{
+			"type":"int"
+		},
+		"prop2":{
+			"type":"string"
+		}
+	}
+}
+		
