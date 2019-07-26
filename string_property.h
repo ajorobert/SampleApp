@@ -13,6 +13,7 @@
 
 class StringProperty: public Property {
 public:
+	StringProperty(std::string name): Property(name) {};
 	virtual ~StringProperty() = default;
 
 public:

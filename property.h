@@ -12,6 +12,7 @@
 
 class Property {
 public:
+	Property(std::string name): name_(name) {};
 	virtual ~Property() = default;
 
 public:
@@ -19,8 +20,8 @@ public:
 	 * This function reads a value of property type into object local storage.
 	 *
 	 * Return:
-	 * 	Success : 0
-	 * 	Error   : Error code
+	 * 	0 on success.
+	 * 	error code on error.
 	 */
 	virtual int SetValue(std::string value) = 0;
 
@@ -28,19 +29,21 @@ public:
 	 * This function reads a value of property type into object local storage.
 	 *
 	 * Return:
-	 * 	Success : 0
-	 * 	Error   : Error code
+	 * 	value as string.
+	 * 	empty string if no value assigned.
 	 */
 	virtual std::string GetValue() = 0;
 
 	/*
 	 * This function return type name as string.
-	 *
-	 * Return:
-	 * 	Success : 0
-	 * 	Error   : Error code
 	 */
 	virtual std::string GetType() = 0;
+
+	/*
+	 * Return property name as string.
+	 */
+	virtual std::string GetName() { return name_; };
+	virtual std::string GetAsd() { return "asd"; };
 
 protected:
 	std::string name_;

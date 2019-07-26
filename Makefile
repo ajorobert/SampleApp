@@ -16,3 +16,6 @@ $(TARGET): $(OBJECTS)
 	
 %.o: %.cc
 	g++ $(CPPFLAGS) -c $<
+	
+clean:
+	rm $(TARGET) $(OBJECTS)

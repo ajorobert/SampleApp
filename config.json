@@ -1,11 +1,11 @@
 {
-	"group": {
-		"prop1":{
-			"type":"int"
-		},
-		"prop2":{
+	"properties": {
+		"Name":{
 			"type":"string"
-		}
+		},
+		"Age":{
+			"type":"int"
+		}				
 	}
 }
 		

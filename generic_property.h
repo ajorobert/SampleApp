@@ -9,17 +9,23 @@
 #define GENERIC_PROPERTY_H_
 
 #include "property.h"
+#include <typeinfo>
 #include <sstream>
 
 template <class T>
 class GenericProperty: public Property {
 public:
+	GenericProperty(std::string name): Property(name) {};
 	virtual ~GenericProperty() = default;
 
 public:
-	int GetValue(std::string value) override {
-		std::stringstream ss(value);
-		ss >> value_;
+	int SetValue(std::string value) override {
+		try {
+			std::stringstream ss(value);
+			ss >> value_;
+		} catch (...) {
+			value_ = 0;
+		}
 		return 0;
 	}
 

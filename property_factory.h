@@ -8,8 +8,11 @@
 #ifndef PROPERTY_FACTORY_H_
 #define PROPERTY_FACTORY_H_
 
-class PropertyFactory {
+#include "property.h"
 
+class PropertyFactory {
+public:
+	static Property* Make(std::string type, std::string name);
 };
 
 

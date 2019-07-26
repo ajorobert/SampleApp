@@ -8,14 +8,16 @@
 #include <string>
 #include <iostream>
 #include "string_property.h"
+#include "generic_property.h"
+#include "property_manager.h"
 
 int main() {
-    StringProperty obj;
-    std::string value;
-    std::cout << "Enter the value [of type : " << obj.GetType() << "]";
-    std::cin >> value;
-    obj.SetValue(value);
-    std::cout << "Current value [of type : " << obj.GetType() << "] is : " << obj.GetValue() << std::endl;
-
+    PropertyManager manager;
+    if (manager.Load() != 0) {
+    	std::cout << "Failed to parse config file. Please check." << std::endl;
+    	return -1;
+    }
+    manager.Read();
+    manager.Print();
     return 0;
 }
