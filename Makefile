@@ -7,15 +7,22 @@ TARGET = SampleApp
 
 SRCS = main.cc string_property.cc property_factory.cc property_manager.cc
 OBJECTS=$(subst .cc,.o,$(SRCS))
+DEPENDS = $(subst .cc,.d,$(SRCS))
 
-CPPFLAGS = -std=c++11 -g
+CPPFLAGS = -std=c++11 -g -Wall
 LDFLAGS = 
 
+.PHONY: all clean
+all: $(TARGET)
+
 $(TARGET): $(OBJECTS)
-	g++ -o $(TARGET) $(OBJECTS) $(LDFLAGS)
+	g++ -o $@ $^ $(LDFLAGS)
 	
+-include $(DEPENDS)
+
 %.o: %.cc
-	g++ $(CPPFLAGS) -c $<
-	
+	g++ $(CPPFLAGS) -MMD -MP -c $< -o $@
+
 clean:
-	rm $(TARGET) $(OBJECTS)
+	rm $(TARGET) $(OBJECTS) $(DEPENDS)
+	
